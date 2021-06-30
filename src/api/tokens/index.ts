@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
+import { Request, Response } from "express";
 import { getAddress } from "@ethersproject/address";
 import { getTopPairs } from "../../utils";
 import { return200, return500 } from "../../utils/response";
@@ -12,7 +12,7 @@ interface ReturnShape {
   };
 }
 
-export default async function (req: VercelRequest, res: VercelResponse): Promise<void> {
+export default async function (req: Request, res: Response): Promise<void> {
   try {
     const topPairs = await getTopPairs();
 
